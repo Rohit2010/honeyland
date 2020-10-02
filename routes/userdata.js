@@ -31,7 +31,7 @@ router.post("/userdata", (req, res) => {
 })
 
 
-router.get("/getdata",requireLogin,(req, res) => {
+router.get("/getdata",(req, res) => {
     User.find()
     .then((user) => {
         return res.json(user)
