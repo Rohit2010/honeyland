@@ -2,7 +2,6 @@ var express = require("express");
 const requireLogin = require("../middleware/requireLogin");
 var router = express.Router();
 const User = require("../models/user")
-const Search = require("../models/search")
 const accountSid = 'AC6abc8b568c581f0a01e31c40994d39eb';
 const authToken = '948b7f65ac32975271867a5d0ea75162';
 const client = require('twilio')(accountSid, authToken);

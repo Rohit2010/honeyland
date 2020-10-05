@@ -24,6 +24,14 @@ var Schema = mongoose.Schema;
             type:String,
             required:true
       },
+      remark:{
+        type:String,
+        default:"no remark"
+      },
+      status:{
+            type:String,
+            default:"Application"
+      },
       occupation:{
           type:String,
           required:true,
