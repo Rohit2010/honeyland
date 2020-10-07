@@ -48,5 +48,13 @@ router.get('/user/:id', (req, res) => {
     })
 
 })
+router.put('/user/update/:id', (req, res) => {
+    User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, useFindAndModify: false }, function(err, user) {
+        if (err) {
+            res.status(422).json({ error: "update failed" })
+        }
+        res.json(user)
+    });
+})
 
 module.exports = router;
