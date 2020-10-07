@@ -2,8 +2,8 @@ var express = require("express");
 const requireLogin = require("../middleware/requireLogin");
 var router = express.Router();
 const User = require("../models/user")
-const accountSid = 'AC6abc8b568c581f0a01e31c40994d39eb';
-const authToken = '948b7f65ac32975271867a5d0ea75162';
+const accountSid = 'ACfcfbbdb92f711e6de7cca317dc29fde9';
+const authToken = '3120398d9b856b6296c7fd38197c029a';
 const client = require('twilio')(accountSid, authToken);
 router.post("/userdata", (req, res) => {
 
@@ -12,7 +12,7 @@ router.post("/userdata", (req, res) => {
     user.save().then((user) => {
             client.messages
                 .create({
-                    body: 'Thank you for filling the form',
+                    body: 'thank you',
                     from: '+12017205829',
                     to: `+91${req.body.number}`
                 })
