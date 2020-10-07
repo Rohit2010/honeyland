@@ -49,8 +49,8 @@ const userSchema = new Schema({
         required: true
     },
     photo: {
-        type: String,
-        required: true
+        data: Buffer,
+        contentType: String
     },
     familyIncome: {
         name: {
