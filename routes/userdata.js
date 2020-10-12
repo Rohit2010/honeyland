@@ -3,12 +3,32 @@ const requireLogin = require("../middleware/requireLogin");
 var router = express.Router();
 const User = require("../models/user")
 const accountSid = 'ACfcfbbdb92f711e6de7cca317dc29fde9';
-const authToken = '3120398d9b856b6296c7fd38197c029a';
+const authToken = '79f85edec90d76ac73fddba8704f439b';
 const client = require('twilio')(accountSid, authToken);
 const _ = require("lodash");
 const fs = require("fs");
+const nodemailer = require("nodemailer");
+
 
 router.post("/userdata", (req, res) => {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'prakaashrathod@gmail.com',
+          pass: '46565000p'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'prakaashrathod@gmail.com',
+        to: `${req.body.email}`,
+        subject: 'Confirmation mail from honeyland',
+        text: `Congratulation! 
+        
+        Your Application is Successfully Submitted. The team will call you soon for the next process.  
+        
+        Team Honeyland Housing`
+      };
 
     const user = new User(req.body);
     console.log(req.body)
@@ -19,6 +39,13 @@ router.post("/userdata", (req, res) => {
                     from: '+12017205829',
                     to: `+91${req.body.number}`
                 })
+                transporter.sendMail(mailOptions, function(error, info){
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      console.log('Email sent: ' + info.response);
+                    }
+                  })
                 .then(message => console.log(message.sid));
             res.json({
                 name: user.name,

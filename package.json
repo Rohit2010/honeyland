@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.7",
+    "nodemailer": "^6.4.13",
     "nodemon": "^2.0.4",
     "twilio": "^3.49.3"
   }
