@@ -14,13 +14,13 @@ router.post("/userdata", (req, res) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'prakaashrathod@gmail.com',
-          pass: '46565000p'
+          user: 'servicehoneyland@gmail.com',
+          pass: 'Honeyland123@'
         }
       });
       
       var mailOptions = {
-        from: 'prakaashrathod@gmail.com',
+        from: 'servicehoneyland@gmail.com',
         to: `${req.body.email}`,
         subject: 'Confirmation mail from honeyland',
         text: `Congratulation! 
@@ -35,7 +35,7 @@ router.post("/userdata", (req, res) => {
     user.save().then((user) => {
             client.messages
                 .create({
-                    body: 'thank you',
+                    body: "Congratulation!  Your Application is Successfully Submitted. The team will call you soon for the next process.  Team Honeyland Housing",
                     from: '+12017205829',
                     to: `+91${req.body.number}`
                 })
